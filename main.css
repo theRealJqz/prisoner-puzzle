@@ -1,0 +1,165 @@
+body{
+    margin: 0;
+    position: relative;
+    width: 100vw; height: 100vh;
+}
+button{
+    background-color: rgb(109, 182, 255);
+    padding: 10px 20px 10px 20px;
+    border: none; border-radius: 30px;
+    cursor: pointer;
+}
+button:hover{
+    background-color:rgb(52, 144, 236) ;
+}
+.hidden{
+    display: none !important;
+}
+.flex-center{
+    display: flex; justify-content: center; align-items: center;
+}
+#about-page-overlay{
+    width: 100%; height: 100%;
+    position: absolute;
+    background-color: rgb(0, 0, 0, 0.2);
+}
+#page-overlay{
+    width: 100%; height: 100%; display: flex; flex-direction: column; 
+    justify-content: center; align-items: center;
+}
+#puzzle-console-display{
+    display: flex; 
+}
+#puzzle-board{
+    max-width: 50vw; max-height: 50vw;
+    min-width: 600px; min-height: 600px;
+    display: grid;
+    grid-template-columns: repeat(10, 7%);
+    grid-template-rows: repeat(10, 7%);
+    gap: 3%;
+    padding: 20px 0 20px 20px;
+    border: 2px black solid;
+}.puzzle{
+    cursor: pointer; background-color: transparent; position: relative;
+    width: 100%; height: 100%; display: flex; align-items: center;
+}
+.card{
+    width: 100%; height: 100%;
+    border: 2px solid black; 
+    position: relative;
+    transition: transform 0.5s;
+    transition-delay: 0.2s;
+    transform-style: preserve-3d;
+}
+.puzzle .card.show{
+    transform: rotateY(180deg);
+}
+.cardBack, .cardFront{
+    display: flex; align-items: center; justify-content: center;
+    background-color: #c19a76;
+    align-items: center; justify-content: center;
+    position: absolute; 
+    width: 100%; height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+}
+.cardBack{
+    background-color: dodgerblue;
+    transform: rotateY(180deg);
+}
+.person-container{
+    opacity: 0;
+    position: absolute; font-size: 0.8em;
+    display: flex; align-items: center; flex-direction: column;
+    width: 20px; height: 40px;
+    right: -20px;
+    transition: opacity 0.2s;
+}
+.person-container.show{
+    animation: togglePerson 0.8s linear ;
+}
+.head{
+    width: 10px; height: 10px;
+    z-index: 5;
+    border-radius: 50%;
+    border: 1px #9b8261 solid;
+    background-color: #e0ac69;
+    margin-bottom: -1px;
+}
+.torso{
+    z-index: 4;
+    text-align: center;
+    width: 17px; height: 24px;
+    border-radius: 10px;
+    background-color: orange;
+}
+@keyframes togglePerson {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+#info-display{
+    width: 300px; height: 640px;
+    border:1px solid black;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    border-left: none;
+    position: relative;
+}
+.text-content{
+    margin: 10px 0 0 10px;
+}
+h4{
+    padding: 0;
+}
+li{
+    margin-top: 5px;
+}
+.text-content ul{
+    list-style-position: inside;
+    padding: 0;
+}
+#console-output{
+    position: absolute;
+    overflow: hidden;
+    height: 600px;
+    border-radius: 0 0 30px 30px;
+    left: 10px; top: -575px;
+    background-color: rgb(211, 211, 211);
+    transition: top 0.5s ease-in;
+}
+#console-output.show{
+    top: 0px
+}
+#console-tab{
+    background-color: rebeccapurple;
+    height: 30px;
+    position: relative;
+    text-align: center;
+    bottom: 0; width: 100%;
+    cursor: pointer;
+    color: rgb(252, 252, 252);
+}
+#console-output ul{
+    position: relative; 
+    width: 240px; height: 575px;
+    margin: auto;
+    overflow-y: scroll;
+}
+#options-controller{
+    display: flex; align-items: center;
+    gap: 20px;
+}
+#interval-container{
+    flex-direction: column;
+}

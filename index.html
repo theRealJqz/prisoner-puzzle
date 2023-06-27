@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Roller</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon-tag.png">
+    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div id="about-page-overlay" class="hidden flex-center">
+        <div id="about-page">
+
+        </div>
+    </div>
+    <div id="page-overlay">
+        <div id="puzzle-console-display">
+            <div id="puzzle-board">
+
+            </div>
+            <div id="info-display">
+                <div class="text-content">
+                    <h2>The 100 prisoner puzzle</h2>
+                    <h4>The puzzle:</h4>
+                    <ul>
+                        <li>There are 100 prisoners, 1 to 100</li>
+                        <li>The prisoners are to find their number, which are randomly hidden in 100 boxes.</li>
+                        <li>If everyone find their number within 50 attempts, they all win.</li>
+                        <li>If anyone takes more than 50 attemps to find their number everyone loses.</li>
+                    </ul>
+                    <h4>The strategy:</h4>
+                    <ul>
+                        <li>If they pick at random, the group has 8 * 10^-34 chance of success. 
+                            Fortunately there is a solution, and it goes as thus:</li>
+                        <li>Each person opens the first box corresponding to their own number</li>
+                        <li>Then they open the next box corresponding to the number inside the previous box</li>
+                        <li>Then they follow the chain until they find their own number</li>
+                        <li>This strategy improves the odds of sucess to ~30%</li>
+                        <li>How does it work? 🤷‍♂️ magic probably.</li>
+                    </ul>
+                    <p>A more detailed explanation is found <a href="https://www.youtube.com/watch?v=iSNsgj1OCLA" target="_blank">Here</a>
+                    </p>
+                </div>
+                <div id="console-output">
+                    <ul></ul>
+                    <div id="console-tab">Output</div>
+                </div>
+                
+            </div>      
+        </div>
+        <div id="options-controller">
+            <button id="start-pause">Start</button>
+            <div id="interval-container" class="flex-center">
+                <input type="range" id="intervalController" value="10" min="1" max="50">
+                <span>
+                    <span>runs per interval:</span>
+                    <span id="sliderValue">1</span>
+                </span>
+            </div>   
+            <button id="reset-puzzle">Reset</button>   
+        </div>
+    </div>
+</body>
+</html>
